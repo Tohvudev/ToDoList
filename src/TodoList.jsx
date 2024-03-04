@@ -16,10 +16,15 @@ const TodoList = () => {
   const addTodo = (event) => {
     event.preventDefault();
     if (todo.description && todo.date) {
-      
       setTodos((prevTodos) => [todo, ...prevTodos]);
       setTodo({ description: "", date: "" });
     }
+  };
+
+  const handleDelete = (index) => {
+    const updatedTodos = [...todos];
+    updatedTodos.splice(index, 1);
+    setTodos(updatedTodos);
   };
 
   return (
@@ -47,7 +52,7 @@ const TodoList = () => {
         </div>
         <button type="submit">Add</button>
       </form>
-      <TodoTable todos={todos} />
+      <TodoTable todos={todos} onDelete={handleDelete} />
     </>
   );
 };
