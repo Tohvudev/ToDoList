@@ -16,12 +16,8 @@ const TodoList = () => {
   const addTodo = (event) => {
     event.preventDefault();
     if (todo.description && todo.date) {
-      // Voit valita lisätäänkö todo taulukon alkuun vai loppuun
+      
       setTodos((prevTodos) => [todo, ...prevTodos]);
-      // Tai käytä seuraavaa riviä lisätäksesi todo taulukon loppuun
-      // setTodos((prevTodos) => [...prevTodos, todo]);
-
-      // Nollaa todo tila lisäyksen jälkeen
       setTodo({ description: "", date: "" });
     }
   };
